@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a60492049c9dc4780451b6f53dc123, type: 3}
+  m_Name: Object list
+  m_EditorClassIdentifier: 
+  objs:
+  - tag: candy
+    chunkObject: {fileID: 8869308844259311232, guid: 35405a0d41c05fb46a678d7e72a1ee89, type: 3}
+  - tag: gem
+    chunkObject: {fileID: 2695673577800116254, guid: 04bbe75fcc89d0742a52d757ec210810, type: 3}
+  - tag: pin
+    chunkObject: {fileID: 8034331476096694913, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
+  - tag: pin end
+    chunkObject: {fileID: 8034331476096694913, guid: 3db03a6d6014b5c4aa3949e943f77cd8, type: 3}
+  - tag: enemy-normal
+    chunkObject: {fileID: 3896468573338115717, guid: 650cc7bab5527674bba1e0da1807c976, type: 3}

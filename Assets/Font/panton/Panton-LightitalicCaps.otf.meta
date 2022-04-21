@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 0cc7bb2bcbcb1a44597f8d0bfb24207d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Panton
+  fontNames:
+  - Panton
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 66dc42f97b751a946b17b79d24de6597, type: 3}
+  - {fileID: 12800000, guid: 17d6b24cae1eafe4f815e253b9cd2464, type: 3}
+  - {fileID: 12800000, guid: e1cc956cf63707b4784912d9d0454194, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
