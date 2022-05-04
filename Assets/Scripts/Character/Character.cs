@@ -18,10 +18,20 @@ public class Character : MonoBehaviour
     public float maxElasticSize = 3;
     public InputPanel inputPanel;
 
+
+    [Header("physic")]
+    public float freeLinearDrag = 0f;
+    public float freeAngularDrag = 0f;
+    public float connectLinearDrag = 1;
+    public float connectAngularDrag = 8f;
+    public Transform centerOfMass;
+
     [Space(10)]
     [Header("Feedbacks")]
-    [SerializeField] private MMFeedbacks shootFeedback;
-    [SerializeField] private MMFeedbacks pullFeedback;
+    [SerializeField] private MMFeedbacks defaultShootFeedback;
+    [SerializeField] private MMFeedbacks defaultPullFeedback;
+    [SerializeField] private MMFeedbacks defaultSpownFeedback;
+
 
 
     Pin beforePin;
@@ -45,16 +55,24 @@ public class Character : MonoBehaviour
         }
     }
 
+    [Space(10)]
+    public Transform[] defaultAnchors;
 
-    public Transform[] anchors;
 
-    [Header("physic")]
-    public float freeLinearDrag = 0.1f;
-    public float freeAngularDrag = 0.1f;
-    public float connectLinearDrag = 1;
-    public float connectAngularDrag = 0.6f;
 
-    public Transform centerOfMass;
+    [Space(10)]
+    [Header("cahracter models")]
+    public CharacterModel[] characterModels;
+
+
+
+    //LOGIC
+
+    internal Transform[] anchors;
+
+    private MMFeedbacks shootFeedback;
+    private MMFeedbacks pullFeedback;
+    private MMFeedbacks spownFeedback;
 
     Rigidbody2D _rb;
     internal Rigidbody2D rb
@@ -71,6 +89,8 @@ public class Character : MonoBehaviour
         inputPanel.setEvents(clickDown, clickStay, clickUp);
         if (centerOfMass)
             rb.centerOfMass = centerOfMass.position;
+
+        SetCharacterModelIndex(SaveManager.selectedCharacter, false);
     }
 
     private void FixedUpdate()
@@ -104,10 +124,10 @@ public class Character : MonoBehaviour
             {
                 beforePin = null;
             }
-            else if(pin != connectedPin)
+            else if (pin != connectedPin)
             {
                 connectedPin = pin;
-                
+
                 pin.Connect();
             }
         }
@@ -141,7 +161,7 @@ public class Character : MonoBehaviour
         {
             //disable rigidbody
             //rb.bodyType = value?RigidbodyType2D.Kinematic:RigidbodyType2D.Dynamic;
-            
+
             rb.simulated = !value;
 
             _posControlActive = value;
@@ -178,7 +198,7 @@ public class Character : MonoBehaviour
 
             transform.position = /*Vector2.Lerp(transform.position, */(direction * distance) + (Vector2)connectedPin.position/*,smoothSpeed * Time.deltaTime)*/;
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, Look2d(transform.position, connectedPin.position),rotationSmoothSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Look2d(transform.position, connectedPin.position), rotationSmoothSpeed);
 
         }
     }
@@ -231,4 +251,51 @@ public class Character : MonoBehaviour
     Vector2 shootDirection() => connectedPin.position - (Vector2)transform.position;
 
     #endregion
+
+    #region character model
+
+    public void SetCharacterModelIndex(int index, bool feedback = true)
+    {
+        DisableAllCharacterModel();
+
+        var customModel = characterModels[index];
+        if (customModel.targetCustomIndex > 0)
+            customModel = characterModels[customModel.targetCustomIndex];
+
+
+        //set property
+        if (customModel.customAnchor)
+            anchors = customModel.anchors;
+        else
+            anchors = defaultAnchors;
+
+        if (customModel.customFeedback)
+        {
+            pullFeedback = customModel.pullFeedback ? customModel.pullFeedback : defaultPullFeedback;
+            shootFeedback = customModel.shootFeedback ? customModel.shootFeedback : defaultShootFeedback;
+            spownFeedback = customModel.spownFeedback ? customModel.spownFeedback : defaultSpownFeedback;
+
+        }
+        else
+        {
+            pullFeedback = defaultPullFeedback;
+            shootFeedback = defaultShootFeedback;
+            spownFeedback = defaultSpownFeedback;
+        }
+
+        characterModels[index].gameObject.SetActive(true);
+
+        if (feedback)
+            spownFeedback?.PlayFeedbacks();
+    }
+
+    private void DisableAllCharacterModel()
+    {
+        foreach (var item in characterModels)
+        {
+            item.gameObject.SetActive(false);
+        }
+    }
+
+    #endregion 
 }

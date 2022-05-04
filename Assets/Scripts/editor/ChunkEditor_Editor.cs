@@ -190,7 +190,10 @@ public class ChunkEditor_Editor : Editor
             ObjectMakerWindow.MakeWindow(editor);
         }
         GUILayout.EndHorizontal();
-
+        if (GUILayout.Button("object options"))
+        {
+            ObjectOptionsWindow.MakeWindow();
+        }
         #endregion
     }
 

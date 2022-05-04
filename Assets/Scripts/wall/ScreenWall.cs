@@ -45,7 +45,7 @@ public class ScreenWall : MonoBehaviour
         float characterPosY = character.transform.position.y - transform.position.y;
         if (characterPosY < -(cameraSize.y + dieWallOffste) && (!character.connected || GetComponent<CameraFollow>().fasterMod))
         {
-            FindObjectOfType<MainManager>().GameOver();
+            character.GetComponent<DieCharacter>().Die("You fell down!!");
         }
 
     }

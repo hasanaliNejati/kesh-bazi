@@ -6,19 +6,21 @@ using Data;
 public class ChunkObject : MonoBehaviour
 {
     [HideInInspector] public string object_tag = "";
-    internal string otherData;
+    protected string otherData;
     public ObjectData GetData()
     {
         var data = new ObjectData();
         data.object_tag = object_tag;
         data.pos = transform.localPosition;
         data.angle = transform.rotation.eulerAngles.z;
-        data.otherData_json = GetOtherData();
+        data.otherData_json = otherData;
         return data;
     }
 
-    protected virtual string GetOtherData()
+    
+
+    public virtual void SetOtherData(string data)
     {
-        return "";
+        otherData = data;
     }
 }

@@ -13,7 +13,7 @@ public class Chunk : MonoBehaviour
     public int minLevel;
     public int maxLevel = 20;
     [Header("hard level 0-10")]
-    [Range(0,10)] public int hardLevel = 0;
+    [Range(0, 10)] public int hardLevel = 0;
 
     internal List<ChunkObject> objects
     {
@@ -46,9 +46,9 @@ public class Chunk : MonoBehaviour
             ChunkObject obj = objectList.GetObject(objectData.object_tag);
             Vector3 position = transform.position + (Vector3)objectData.pos;
             Quaternion rotation = Quaternion.Euler(0, 0, objectData.angle);
-            ChunkObject newObject = Instantiate(obj, position, rotation,transform);
+            ChunkObject newObject = Instantiate(obj, position, rotation, transform);
             newObject.object_tag = objectData.object_tag;
-            newObject.otherData = objectData.otherData_json;
+            newObject.SetOtherData(objectData.otherData_json);
         }
     }
     public ChunkData GetData()

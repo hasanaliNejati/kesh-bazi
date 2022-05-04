@@ -25,7 +25,7 @@ public class Resource : ChunkObject
 
     public virtual void eat()
     {
-        FindObjectOfType<ResourceManager>().AddResource(type, num);
+        FindObjectOfType<ResourceManager>().AddResource(type, num,Camera.main.WorldToViewportPoint(transform.position));
         eatFeedback?.PlayFeedbacks();
         _collider.enabled = false;
         graphic?.SetActive(false);

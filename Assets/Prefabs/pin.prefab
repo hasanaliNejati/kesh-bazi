@@ -314,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2918971711208212299}
   - component: {fileID: 7780430439758968601}
+  - component: {fileID: 3263059278692945383}
   m_Layer: 0
   m_Name: audio sorce
   m_TagString: Untagged
@@ -432,6 +433,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3263059278692945383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990081973997467800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b9d7de6c028884687ee9e83ac53f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBackgroudMusic: 0
 --- !u!1 &8034331474651885175
 GameObject:
   m_ObjectHideFlags: 0

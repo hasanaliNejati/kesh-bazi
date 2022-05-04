@@ -15,36 +15,37 @@ public class ResourceManager : MonoBehaviour
         candy, gem
     }
 
+    //LOGIC
 
     private void Start()
     {
-        takeCandy(0);
-        takeGem(0);
+        candyShower.Set(SaveManager.candy, true);
+        gemShower.Set(SaveManager.gem, true);
     }
 
-    public void AddResource(ResourceType type,int num)
+    public void AddResource(ResourceType type,int num,Vector2 viewportPos)
     {
         switch (type)
         {
             case ResourceType.candy:
-                takeCandy(num);
+                takeCandy(num, viewportPos);
                 break;
             case ResourceType.gem:
-                takeGem(num);
+                takeGem(num, viewportPos);
                 break;
         }
     }
 
-    void takeCandy(int num)
+    void takeCandy(int num,Vector2 viewportPos)
     {
-         SaveManager.candy += num;
-        candyShower.Set(SaveManager.candy);
+        SaveManager.candy += num;
+        candyShower.Set(SaveManager.candy,false,viewportPos);
     }
 
-    void takeGem(int num)
+    void takeGem(int num,Vector2 viewportPos)
     {
         SaveManager.gem += num;
-        gemShower.Set(SaveManager.gem);
+        gemShower.Set(SaveManager.gem,false,viewportPos);
     }
 
 

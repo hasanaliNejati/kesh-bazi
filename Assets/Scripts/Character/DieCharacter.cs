@@ -15,17 +15,26 @@ public class DieCharacter : MonoBehaviour
     {
         if(collision.tag == "enemy")
         {
+            if (collision.GetComponent<EnemyMassage>())
+            {
+                var massager = collision.GetComponent<EnemyMassage>();
+                Die(massager.deathMassage, massager.deathMassageDetail);
+            }else
             Die();
         }
     }
 
-    public void Die()
+    bool deathed;
+    public void Die(string massage = "gaem over" , string massageDetail = "pay more attention.")
     {
-        FindObjectOfType<MainManager>().GameOver();
+        if (deathed)
+            return;
+        FindObjectOfType<MainManager>().GameOver(massage,massageDetail);
         var character = GetComponent<Character>();
         character.rb.simulated = false;
         character.connectedPin = null;
         graphic.SetActive(false);
         dieFeedback.PlayFeedbacks();
+        deathed = true;
     }
 }

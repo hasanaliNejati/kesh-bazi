@@ -7,6 +7,7 @@ public class PanelScript : MonoBehaviour
 {
     public float exitTime = 1;
     float _time;
+    public bool unScaledTime;
     public string exitAnimationName = "end panel";
     public Animator animator;
     public bool startFad;
@@ -63,7 +64,7 @@ public class PanelScript : MonoBehaviour
         if (activeBool)
         {
             if (_time < exitTime)
-                _time += Time.deltaTime;
+                _time += unScaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
             if (startFad)
             {
                 canvasGroup.alpha = _time/exitTime;
@@ -76,7 +77,7 @@ public class PanelScript : MonoBehaviour
         else
         {
 
-            _time -= Time.deltaTime;
+            _time -= unScaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
             if (endFad)
             {
                 canvasGroup.alpha = _time/exitTime;
