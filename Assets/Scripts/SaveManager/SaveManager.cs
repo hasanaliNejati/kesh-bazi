@@ -13,11 +13,11 @@ public static class SaveManager
     {
         get
         {
-            return PlayerPrefs.GetInt(levelCode);
+            return GetInt(levelCode);
         }
         set
         {
-            PlayerPrefs.SetInt(levelCode, value);
+            SetInt(levelCode, value);
         }
     }
     #endregion
@@ -28,11 +28,11 @@ public static class SaveManager
     {
         get
         {
-            return PlayerPrefs.GetInt(candyCode,0);
+            return GetInt(candyCode, 0);
         }
         set
         {
-            PlayerPrefs.SetInt(candyCode, value);
+            SetInt(candyCode, value);
         }
     }
     #endregion
@@ -43,11 +43,11 @@ public static class SaveManager
     {
         get
         {
-            return PlayerPrefs.GetInt(gemCode,0);
+            return GetInt(gemCode, 0);
         }
         set
         {
-            PlayerPrefs.SetInt(gemCode, value);
+            SetInt(gemCode, value);
         }
     }
     #endregion
@@ -59,15 +59,14 @@ public static class SaveManager
     {
         get
         {
-            return PlayerPrefs.GetInt(selectedCharacterCode);
+            return GetInt(selectedCharacterCode);
         }
         set
         {
-            PlayerPrefs.SetInt(selectedCharacterCode, value);
+            SetInt(selectedCharacterCode, value);
         }
     }
     #endregion
-
 
     #region boughtCharacter
 
@@ -92,11 +91,11 @@ public static class SaveManager
     {
         get
         {
-            return (PlayerPrefs.GetInt(soundMuteCode) != 0);
+            return GetBool(soundMuteCode);
         }
         set
         {
-            PlayerPrefs.SetInt(soundMuteCode, value ? 1 : 0);
+            SetBool(soundMuteCode, value);
         }
     }
 
@@ -109,12 +108,55 @@ public static class SaveManager
     {
         get
         {
-            return (PlayerPrefs.GetInt(musicMuteCode) != 0);
+            return GetBool(musicMuteCode);
         }
         set
         {
-            PlayerPrefs.SetInt(musicMuteCode, value ? 1 : 0);
+            SetBool(musicMuteCode,value);
         }
+    }
+
+    #endregion
+
+    
+
+
+    #region founctions
+    public static void SetInt(string key, int value)
+    {
+        PlayerPrefs.SetInt(key, value);
+    }
+    public static int GetInt(string key, int defaultValue = 0)
+    {
+        return PlayerPrefs.GetInt(key, defaultValue);
+    }
+
+    public static void SetFloat(string key, float value)
+    {
+        PlayerPrefs.SetFloat(key, value);
+    }
+    public static float GetFloat(string key, float defaultValue = 0)
+    {
+        return PlayerPrefs.GetFloat(key, defaultValue);
+    }
+
+    public static void SetString(string key, string value)
+    {
+        PlayerPrefs.SetString(key, value);
+    }
+    public static string GetString(string key, string defaultValue = "")
+    {
+        return PlayerPrefs.GetString(key, defaultValue);
+    }
+
+    //1 = true        0 = false
+    public static void SetBool(string key, bool value)
+    {
+        PlayerPrefs.SetInt(musicMuteCode, value ? 1 : 0);
+    }
+    public static bool GetBool(string key, bool defaultValue = false)
+    {
+        return (PlayerPrefs.GetInt(musicMuteCode, defaultValue ? 1 : 0) != 0);
     }
 
     #endregion

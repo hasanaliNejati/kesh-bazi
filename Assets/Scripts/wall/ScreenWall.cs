@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Camera))]
+using MoreMountains.Feedbacks;
+using Cinemachine;
+//[RequireComponent(typeof(Camera))]
 public class ScreenWall : MonoBehaviour
 {
     Character _character;
@@ -11,19 +13,16 @@ public class ScreenWall : MonoBehaviour
     }
     public float characterRadius;
     public float dieWallOffste = 2;
+    [Header("feedback")]
+    [SerializeField] private MMFeedbacks teleportFeedback;
     Vector2 cameraSize;
 
-    Camera _camera;
-    Camera camera
-    {
-        get { return _camera ? _camera : _camera = GetComponent<Camera>(); }
-    }
-
+   
     private void Start()
     {
         float characterOffset = character.transform.position.z - transform.position.z;
-        cameraSize = (camera.ViewportToWorldPoint(new Vector3(1, 1, characterOffset)) - transform.position);
-        print(cameraSize);
+        cameraSize = (Camera.main.ViewportToWorldPoint(new Vector3(1, 1, characterOffset)) - transform.position);
+        
 
     }
 
@@ -36,9 +35,11 @@ public class ScreenWall : MonoBehaviour
         float characterPosX = character.transform.position.x - transform.position.x;
         if (Mathf.Abs(characterPosX) > maximumWidth && !character.connected)
         {
-            character.transform.position = new Vector3(-character.transform.position.x, character.transform.position.y, character.transform.position.z);
+            var newPos = new Vector3(-character.transform.position.x, character.transform.position.y, character.transform.position.z);
+            character.transform.position = newPos;
+            teleportFeedback.PlayFeedbacks(newPos);
         }
-        maximumWidth = Mathf.Clamp(Mathf.Abs(characterPosX), this.cameraSize.x + characterRadius,500);
+        maximumWidth = Mathf.Clamp(Mathf.Abs(characterPosX) + 0.1f, this.cameraSize.x + characterRadius,500);
 
 
 

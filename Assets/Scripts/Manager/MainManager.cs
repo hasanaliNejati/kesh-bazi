@@ -7,6 +7,7 @@ public class MainManager : MonoBehaviour
 {
 
     public UnityEvent OnStartGame;
+    public UnityEvent OnEndGame;
     public Character character;
     public InputPanel inputPanel;
     public PanelScript menuPanel;
@@ -43,7 +44,7 @@ public class MainManager : MonoBehaviour
         if (_owner_endGame)
             return;
         _owner_endGame = true;
-
+        OnEndGame.Invoke();
         victoryPanel.ShowPanel(SaveManager.level);
         SaveManager.level += 1;
         FindObjectOfType<BackgroundMusic>()?.ChangeAudio(0);
@@ -56,6 +57,7 @@ public class MainManager : MonoBehaviour
         if (_owner_endGame)
             return;
         _owner_endGame = true;
+        OnEndGame.Invoke();
 
 
         gameoverPanel.ShowPanel(massage,massageDetail);

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraFollow : MonoBehaviour
 {
+    [SerializeField] Camera cam;
     public bool follow = false;
     public bool fasterMod = false;
     public float fasterSpeed = 2;
@@ -32,19 +34,20 @@ public class CameraFollow : MonoBehaviour
         public float position;
     }
     public Style shopStyle;
-    
+
 
 
     //LOGIC
     //camera
-    Camera _camera;
-    Camera camera
+    CinemachineVirtualCamera _cinemachineCam;
+    CinemachineVirtualCamera cinemachineCam
     {
         get
         {
-            return _camera ? _camera : _camera = GetComponent<Camera>();
+            return _cinemachineCam ? _cinemachineCam : _cinemachineCam = GetComponent<CinemachineVirtualCamera>();
         }
     }
+
     private Style defaultStyle;
 
     private Style correntStyle;
@@ -53,7 +56,7 @@ public class CameraFollow : MonoBehaviour
     {
         minPosY = transform.position.y;
 
-        defaultStyle = new Style(camera.orthographicSize, transform.position.y);
+        defaultStyle = new Style(cam.orthographicSize, transform.position.y);
         SetStyle(defaultStyle);
     }
 
@@ -80,7 +83,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, correntStyle.size, sizeSpeed * Time.deltaTime);
+        cinemachineCam.m_Lens.OrthographicSize = Mathf.Lerp(cam.orthographicSize, correntStyle.size, sizeSpeed * Time.deltaTime);
 
         if (!follow || !character)
         {

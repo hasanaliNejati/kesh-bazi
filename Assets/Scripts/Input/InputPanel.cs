@@ -31,11 +31,7 @@ public class InputPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!gameStarted)
-        {
-            gameStarted = true;
-            OnStartGame.Invoke();
-        }
+        
         data = eventData;
         clickPos = data.position;
         down(clickPos);
@@ -53,6 +49,13 @@ public class InputPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (data != null)
         {
             correntPos = data.position;
+            if (!gameStarted && 
+                (Camera.main.ScreenToWorldPoint(clickPos) - Camera.main.ScreenToWorldPoint(correntPos)).magnitude > 1f)
+            {
+                print(Camera.main.ScreenToWorldPoint(clickPos - correntPos).magnitude);
+                gameStarted = true;
+                OnStartGame.Invoke();
+            }
             stay(correntPos);
         }
     }

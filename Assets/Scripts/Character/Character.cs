@@ -68,8 +68,7 @@ public class Character : MonoBehaviour
 
     //LOGIC
 
-    internal Transform[] anchors;
-
+    internal Transform[] anchors = new Transform[0];
     private MMFeedbacks shootFeedback;
     private MMFeedbacks pullFeedback;
     private MMFeedbacks spownFeedback;
@@ -162,8 +161,19 @@ public class Character : MonoBehaviour
             //disable rigidbody
             //rb.bodyType = value?RigidbodyType2D.Kinematic:RigidbodyType2D.Dynamic;
 
-            rb.simulated = !value;
+            //rb.simulated = !value;
 
+            if (value)
+            {
+                //enable rb
+                var constraints2D = RigidbodyConstraints2D.FreezeAll;
+                rb.constraints = constraints2D;
+            }else
+            {
+                //disable rb
+                var constraints2D = RigidbodyConstraints2D.None;
+                rb.constraints = constraints2D;
+            }
             _posControlActive = value;
 
         }
@@ -207,6 +217,7 @@ public class Character : MonoBehaviour
     {
         if (posControlActive)
         {
+            
             posControlActive = false;
             shoot();
         }
@@ -223,8 +234,6 @@ public class Character : MonoBehaviour
     void shoot()
     {
 
-        //rb.velocity = Vector2.zero;
-
         rb.angularVelocity = 0;
 
         Vector2 shootVelocity = getShootVelocity();
@@ -233,10 +242,11 @@ public class Character : MonoBehaviour
             rb.velocity = shootVelocity;
             beforePin = connectedPin;
             connectedPin = null;
+
+            shootFeedback?.PlayFeedbacks();
         }
 
         pullFeedback?.StopFeedbacks();
-        shootFeedback?.PlayFeedbacks();
     }
     internal Vector2 getShootVelocity()
     {
