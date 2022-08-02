@@ -46,9 +46,17 @@ public class Chunk : MonoBehaviour
             ChunkObject obj = objectList.GetObject(objectData.object_tag);
             Vector3 position = transform.position + (Vector3)objectData.pos;
             Quaternion rotation = Quaternion.Euler(0, 0, objectData.angle);
+
             ChunkObject newObject = Instantiate(obj, position, rotation, transform);
             newObject.object_tag = objectData.object_tag;
             newObject.SetOtherData(objectData.otherData_json);
+            //movment
+            newObject.SetMovmentLine(objectData.linePoints);
+            newObject.SetLineLoop(objectData.lineLoop);
+            newObject.moveSpeed = objectData.moveSpeed;
+            newObject.rotate = objectData.rotate;
+            newObject.limitRotate = objectData.rotateLoop;
+            newObject.rotateSpeed = objectData.rotateSpeed;
         }
     }
     public ChunkData GetData()

@@ -58,6 +58,8 @@ public class CameraFollow : MonoBehaviour
 
         defaultStyle = new Style(cam.orthographicSize, transform.position.y);
         SetStyle(defaultStyle);
+
+        
     }
 
     public void SetActive(bool active)

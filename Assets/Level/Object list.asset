@@ -22,6 +22,8 @@ MonoBehaviour:
   - tag: pin end
     chunkObject: {fileID: 8034331476096694913, guid: 3db03a6d6014b5c4aa3949e943f77cd8, type: 3}
   - tag: enemy-normal
-    chunkObject: {fileID: 3896468573338115717, guid: 650cc7bab5527674bba1e0da1807c976, type: 3}
+    chunkObject: {fileID: 1433759227424365488, guid: 650cc7bab5527674bba1e0da1807c976, type: 3}
   - tag: resource group
     chunkObject: {fileID: 6578498202911185830, guid: 725d4d18388076e468b3fbcad8712ebd, type: 3}
+  - tag: laser
+    chunkObject: {fileID: 121564926922857309, guid: 0275050dcce101a4a9810fb569857fa8, type: 3}

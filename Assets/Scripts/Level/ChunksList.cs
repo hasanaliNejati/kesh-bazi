@@ -35,11 +35,26 @@ public class ChunksList : ScriptableObject
     {
         if (clear)
             chunks.Clear();
-        for (int i = max != 0 ? min : 0; i < (max!=0?max:chunksAssets.Count); i++)
+        min = max != 0 ? min : 0;
+        max = (max > 0 && max < chunksAssets.Count) ? max : chunksAssets.Count;
+        Debug.Log("min : " + min);
+        Debug.Log("max : " + max);
+        for (int i = min; i < max; i++)
         {
             var v = JsonUtility.FromJson<ListStruct>(chunksAssets[i].text);
             chunks.AddRange(v.data);
         }
+
+
+    }
+
+    public void Import(TextAsset text ,bool clear = true)
+    {
+        if (clear)
+            chunks.Clear();
+
+        var v = JsonUtility.FromJson<ListStruct>(text.text);
+        chunks.AddRange(v.data);
     }
 
 
@@ -55,22 +70,21 @@ public class ChunksList : ScriptableObject
     //    json = JsonUtility.ToJson(chunks);
     //}
 
-    public int GetChunk(Chunk.ChunkType type, int level, MinMax hardLevel)
+    public int GetChunk(Chunk.ChunkType type, int level)
     {
-        int[] chunkIndexs = GetSpecificChunks(type, level, hardLevel);
+        int[] chunkIndexs = GetSpecificChunks(type, level);
         Debug.Log(chunkIndexs.Length + type.ToString());
         int index = Random.Range(0, chunkIndexs.Length);
         return chunkIndexs[index];
     }
 
-    private int[] GetSpecificChunks(Chunk.ChunkType type, int level, MinMax hardLevel)
+    private int[] GetSpecificChunks(Chunk.ChunkType type, int level)
     {
         List<int> chunkIndexs = new List<int>();
         for (int i = 0; i < chunks.Count; i++)
         {
             if (chunks[i].type == type
-                && chunks[i].minLevel <= level && chunks[i].maxLevel >= level
-                && hardLevel.Between(chunks[i].hardLevel))
+                && chunks[i].minLevel <= level && chunks[i].maxLevel >= level)
                 chunkIndexs.Add(i);
         }
         return chunkIndexs.ToArray();

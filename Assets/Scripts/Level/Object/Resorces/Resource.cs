@@ -23,6 +23,8 @@ public class Resource : ChunkObject
         }
     }
 
+    
+
     public virtual void eat()
     {
         FindObjectOfType<ResourceManager>().AddResource(type, num,Camera.main.WorldToViewportPoint(transform.position));

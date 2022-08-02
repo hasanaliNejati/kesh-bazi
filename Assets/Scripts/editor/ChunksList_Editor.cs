@@ -26,7 +26,7 @@ public class ChunksList_Editor : Editor
         DrawDefaultInspector();
 
         GUILayout.Label(chunksList.chunks.Count.ToString());
-        if(GUILayout.Button("Export json"))
+        if (GUILayout.Button("Export json"))
         {
             Export();
         }
@@ -39,12 +39,12 @@ public class ChunksList_Editor : Editor
         minIndexToImport = EditorGUILayout.IntField(minIndexToImport);
         maxIndexToImport = EditorGUILayout.IntField(maxIndexToImport);
         if (GUILayout.Button("import"))
-            chunksList.Import(true,minIndexToImport,maxIndexToImport);
+            chunksList.Import(true, minIndexToImport, maxIndexToImport);
 
         GUILayout.EndHorizontal();
     }
 
-    
+
     private void Export()
     {
         var path = EditorUtility.SaveFilePanel("export chunk list", UnityEngine.Application.dataPath, "0 - 100.json", "json");
@@ -53,6 +53,9 @@ public class ChunksList_Editor : Editor
             string json = JsonUtility.ToJson(new ChunksList.ListStruct(chunksList.chunks));
             Debug.Log(json);
             File.WriteAllText(path, json);
+            AssetDatabase.Refresh();
         }
     }
+
+    
 }

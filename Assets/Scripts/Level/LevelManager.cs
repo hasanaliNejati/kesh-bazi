@@ -8,16 +8,21 @@ public class LevelManager : MonoBehaviour
 
     public ChunksList chunksList;
     public ObjectList objectList;
-    public TextAsset text;
+    public TextAsset[] texts;
 
     public LevelType currentLevelType;
 
     // Start is called before the first frame update
     void Awake()
     {
-        instantiatLevel(JsonUtility.FromJson<FullLevelData>(text.text).levels[SaveManager.level]);
+        List<Level> levels = new List<Level>();
+        foreach (var item in texts)
+        {
+            levels.AddRange(JsonUtility.FromJson<FullLevelData>(item.text).levels);
+        }
+        chunksList.Import(true);
+        instantiatLevel(levels[SaveManager.level]);
     }
-
     internal float height = 0;
     public void instantiatLevel(Level level)
     {
@@ -25,7 +30,7 @@ public class LevelManager : MonoBehaviour
         if (level.type == LevelType.fast)
         {
             FindObjectOfType<CameraFollow>().fasterMod = true;
-            
+
         }
         for (int i = 0; i < level.chunkIndexs.Length; i++)
         {

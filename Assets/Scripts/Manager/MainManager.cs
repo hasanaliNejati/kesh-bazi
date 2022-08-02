@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Events;
 using MoreMountains.Feedbacks;
 public class MainManager : MonoBehaviour
@@ -36,6 +37,12 @@ public class MainManager : MonoBehaviour
         if (GetComponent<LevelManager>().currentLevelType == LevelType.fast)
             FindObjectOfType<BackgroundMusic>()?.ChangeAudio(1);
 
+        var dictionaryData = new Dictionary<string, object>
+        {
+            { "level", SaveManager.level }
+        };
+         AnalyticsResult result = Analytics.CustomEvent("start Game", dictionaryData);
+        print("analytics : " + result);
     }
 
     bool _owner_endGame = false;
@@ -65,6 +72,15 @@ public class MainManager : MonoBehaviour
         FindObjectOfType<BackgroundMusic>()?.ChangeAudio(0);
 
         gameOverFeedback.PlayFeedbacks();
+
+        var dictionaryData = new Dictionary<string, object>
+        {
+            { "level", SaveManager.level },
+            { "massage", massage },
+            { "charater pos", (int)character.transform.position.y }
+        };
+        AnalyticsResult result = Analytics.CustomEvent("start Game", dictionaryData);
+        print("analytics : " + result);
     }
 
     public void pauseGame()

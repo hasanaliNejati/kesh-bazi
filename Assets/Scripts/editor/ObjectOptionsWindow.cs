@@ -13,23 +13,36 @@ public class ObjectOptionsWindow : EditorWindow
 
     private void OnGUI()
     {
-
-        if (Selection.objects.Length == 1)
+        try
         {
-            var obj = (GameObject)Selection.objects[0];
-            if (obj.GetComponent<ResourceGroup>())
+            if (Selection.objects.Length == 1 && (GameObject)Selection.objects[0])
             {
-                ResourceGroupEditor(obj.GetComponent<ResourceGroup>());
+                var obj = (GameObject)Selection.objects[0];
+                if (obj.GetComponent<ObjectGroup>())
+                {
+                    ResourceGroupEditor(obj.GetComponent<ObjectGroup>());
 
-            }else if (true)
-            {
+                }
+                else if (true)
+                {
 
+                }
+
+                if (obj.GetComponent<ChunkObject>())
+                {
+                    MovementEditor(obj.GetComponent<ChunkObject>());
+                }
             }
+        }
+        catch
+        {
+            GUILayout.Label("error");
+
         }
 
     }
 
-    private void ResourceGroupEditor(ResourceGroup resourceGroup)
+    private void ResourceGroupEditor(ObjectGroup resourceGroup)
     {
         if (GUILayout.Button("random group"))
         {
@@ -46,5 +59,26 @@ public class ObjectOptionsWindow : EditorWindow
             resourceGroup.Back();
         }
         GUILayout.EndHorizontal();
+    }
+
+    private void MovementEditor(ChunkObject obj)
+    {
+        if (obj.movementLine)
+        {
+            GUILayout.Space(5);
+            GUILayout.Label("Movement");
+            GUILayout.Space(5);
+
+            if (GUILayout.Button("select Line"))
+            {
+                Selection.objects = new GameObject[] { obj.movementLine.gameObject };
+            }
+
+
+            if (GUILayout.Button("localization line point"))
+            {
+                obj.LocalizationLine();
+            }
+        }
     }
 }

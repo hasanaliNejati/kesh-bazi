@@ -17,6 +17,12 @@ public class ObjectData
 {
     public Vector2 pos;
     public float angle;
+    public Vector2[] linePoints;
+    public bool lineLoop;
+    public float moveSpeed;
+    public float rotate;
+    public bool rotateLoop;
+    public float rotateSpeed;
     public string object_tag;
     public string otherData_json;
 }

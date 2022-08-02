@@ -46,6 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45210f088b6453347bf3c005b8a8b5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementLine: {fileID: 0}
+  moveSpeed: 1
+  rotate: 0
+  limitRotate: 0
+  rotateSpeed: 10
   object_tag: 
   resources:
   - {fileID: 5234091111104787550}

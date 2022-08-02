@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.UIElements;
 using System;
+using System.IO;
 
 [CustomEditor(typeof(ChunkEditor))]
 public class ChunkEditor_Editor : Editor
@@ -53,6 +54,32 @@ public class ChunkEditor_Editor : Editor
 
         #region style
         GUIStyleState titleStyle = new GUIStyleState();
+
+        #endregion
+
+        #region chunk list text
+
+        GUILayout.BeginHorizontal();
+        if (editor.chunkListText)
+        {
+            if (GUILayout.Button("import"))
+            {
+                if (currentChunk != null)
+                    ExitChunk(currentChunk, CurrentChunkIndex);
+
+                editor.chunksList.Import(editor.chunkListText);
+                Debug.Log("import seccesfuly");
+            }
+            if (GUILayout.Button("save"))
+            {
+                if (currentChunk != null)
+                    ExitChunk(currentChunk, CurrentChunkIndex);
+
+                ExportTo(editor.chunkListText);
+                Debug.Log("save seccesfuly");
+            }
+        }
+        GUILayout.EndHorizontal();
 
         #endregion
 
@@ -201,7 +228,7 @@ public class ChunkEditor_Editor : Editor
     private void SelectChunk(int index)
     {
         //validation
-        if (index < 0 || editor.chunkList.chunks.Count <= index)
+        if (index < 0 || editor.chunksList.chunks.Count <= index)
         {
             Debug.LogError("out of range");
             return;
@@ -212,8 +239,8 @@ public class ChunkEditor_Editor : Editor
             ExitChunk(currentChunk, CurrentChunkIndex);
 
         //generate new chunk
-        currentChunk = Instantiate(editor.chunkList.baseChunk, Vector3.zero, new Quaternion());
-        currentChunk.GenerateChunk(editor.chunkList.chunks[index], editor.objectList);
+        currentChunk = Instantiate(editor.chunksList.baseChunk, Vector3.zero, new Quaternion());
+        currentChunk.GenerateChunk(editor.chunksList.chunks[index], editor.objectList);
 
         CurrentChunkIndex = index;
     }
@@ -221,8 +248,8 @@ public class ChunkEditor_Editor : Editor
     {
         if (data == null)
             data = new ChunkData();
-        editor.chunkList.chunks.Add(data);
-        SelectChunk(editor.chunkList.chunks.Count - 1);
+        editor.chunksList.chunks.Add(data);
+        SelectChunk(editor.chunksList.chunks.Count - 1);
     }
 
     private void MoveUp()
@@ -243,21 +270,33 @@ public class ChunkEditor_Editor : Editor
     private void DeleteChunk()
     {
         ExitChunk(currentChunk);
-        editor.chunkList.chunks.RemoveAt(CurrentChunkIndex);
+        editor.chunksList.chunks.RemoveAt(CurrentChunkIndex);
     }
 
     private void Save(Chunk chunk, int index)
     {
         //save
-        editor.chunkList.chunks[index] = chunk.GetData();
+        editor.chunksList.chunks[index] = chunk.GetData();
     }
     private void ExitChunk(Chunk chunk, int index = -1)
     {
         //save
-        if (index >= 0 && editor.chunkList.chunks.Count > index)
+        if (index >= 0 && editor.chunksList.chunks.Count > index)
             Save(currentChunk, index);
         //exit
         DestroyImmediate(chunk.gameObject);
-        
+
+    }
+
+    public void ExportTo(TextAsset text)
+    {
+        var path = AssetDatabase.GetAssetPath(text);
+        if (path.Length != 0)
+        {
+            string json = JsonUtility.ToJson(new ChunksList.ListStruct(editor.chunksList.chunks));
+            Debug.Log(json);
+            File.WriteAllText(path, json);
+            AssetDatabase.Refresh();
+        }
     }
 }

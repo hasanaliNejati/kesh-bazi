@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectTarget : ChunkObject
+public class ObjectTarget : MonoBehaviour
 {
     public FaceAnim[] faceAnims;
     public Transform target;
@@ -10,7 +10,7 @@ public class ObjectTarget : ChunkObject
     // Update is called once per frame
     void Update()
     {
-        foreach(FaceAnim f in faceAnims)
+        foreach (FaceAnim f in faceAnims)
         {
             if (target)
             {
@@ -21,6 +21,6 @@ public class ObjectTarget : ChunkObject
                 f.target = f.transform.position;
             }
         }
-        
+
     }
 }

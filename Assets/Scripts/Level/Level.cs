@@ -11,15 +11,12 @@ public enum LevelType
 public class Level 
 {
 
-    public Level(LevelType type,int levelNum,int[] chunkIndexs)
+    public Level(LevelType type,int[] chunkIndexs)
     {
         this.type = type;
-        this.levelNum = levelNum;
         this.chunkIndexs = chunkIndexs; 
     }
 
     public LevelType type;
-    public int levelNum;
-
     public int[] chunkIndexs;
 }
