@@ -6,7 +6,6 @@ public class ObjectGroup : ChunkObject
 {
     public GameObject[] resources;
 
-
     public override void SetOtherData(string data)
     {
         otherData = data;
