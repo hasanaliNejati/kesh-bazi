@@ -11,7 +11,7 @@ public class EndLevelPin : MonoBehaviour
         {
             FindObjectOfType<MainManager>().Victory();
 
-            print("player prefs");
+            //print("player prefs");
         }
     }
 

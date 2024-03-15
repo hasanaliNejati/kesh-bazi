@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea3060355900e147879120453b009c3, type: 3}
   m_Name: level maker
   m_EditorClassIdentifier: 
-  minLevel: 0
-  maxLevel: 11
+  minLevel: 50
+  maxLevel: 400
   fasterLevel: 5
   levelChunkNumber: 2
   levelChunkNumberOffset: 1

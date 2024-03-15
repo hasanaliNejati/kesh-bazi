@@ -11,7 +11,6 @@ public class LevelSlider : MonoBehaviour
     {
         get { return _character ? _character : _character = GameObject.FindGameObjectWithTag("Player"); }
     }
-    public LevelManager levelManager;
     public Slider slider;
     public Text levelText;
     public Text nextLevelText;
@@ -24,14 +23,13 @@ public class LevelSlider : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (!character)
             return;
-        characterY = Mathf.Clamp(character.transform.position.y, characterY, levelManager.height);
+        characterY = Mathf.Clamp(character.transform.position.y, characterY, 1);
 
-        float amound = characterY / levelManager.height;
+        float amound = characterY / 1;
 
         slider.value = amound;
     }

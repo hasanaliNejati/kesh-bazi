@@ -5,6 +5,12 @@ using Cinemachine;
 
 public class CameraFollow : MonoBehaviour
 {
+
+
+    private static CameraFollow instans;
+    public static CameraFollow Instans { get { return instans ? instans : instans = FindObjectOfType<CameraFollow>(); } }
+
+
     [SerializeField] Camera cam;
     public bool follow = false;
     public bool fasterMod = false;

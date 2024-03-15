@@ -52,7 +52,7 @@ public class InputPanel : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             if (!gameStarted && 
                 (Camera.main.ScreenToWorldPoint(clickPos) - Camera.main.ScreenToWorldPoint(correntPos)).magnitude > 1f)
             {
-                print(Camera.main.ScreenToWorldPoint(clickPos - correntPos).magnitude);
+                //print(Camera.main.ScreenToWorldPoint(clickPos - correntPos).magnitude);
                 gameStarted = true;
                 OnStartGame.Invoke();
             }

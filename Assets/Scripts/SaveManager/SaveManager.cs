@@ -7,6 +7,8 @@ public static class SaveManager
 
 
 
+
+
     #region level
     const string levelCode = "level code";
     public static int level
@@ -152,11 +154,11 @@ public static class SaveManager
     //1 = true        0 = false
     public static void SetBool(string key, bool value)
     {
-        PlayerPrefs.SetInt(musicMuteCode, value ? 1 : 0);
+        PlayerPrefs.SetInt(key, value ? 1 : 0);
     }
     public static bool GetBool(string key, bool defaultValue = false)
     {
-        return (PlayerPrefs.GetInt(musicMuteCode, defaultValue ? 1 : 0) != 0);
+        return (PlayerPrefs.GetInt(key, defaultValue ? 1 : 0) != 0);
     }
 
     #endregion

@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum LevelType
-{
-    normal, fast, gift
-}
+
 [Serializable]
-public class Level 
+public class Level : MonoBehaviour
 {
 
-    public Level(LevelType type,int[] chunkIndexs)
-    {
-        this.type = type;
-        this.chunkIndexs = chunkIndexs; 
-    }
 
     public LevelType type;
-    public int[] chunkIndexs;
+    
 }

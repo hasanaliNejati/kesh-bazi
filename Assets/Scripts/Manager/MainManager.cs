@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.Events;
 using MoreMountains.Feedbacks;
+using System;
+
 public class MainManager : MonoBehaviour
 {
+
+    private static MainManager instans;
+    public static MainManager Instans { get { return instans?instans:instans=FindObjectOfType<MainManager>(); } }
 
     public UnityEvent OnStartGame;
     public UnityEvent OnEndGame;
@@ -15,6 +20,8 @@ public class MainManager : MonoBehaviour
     public PanelScript gameplayPanel;
     public VictoryPanel victoryPanel;
     public GameOverPanel gameoverPanel;
+
+    public event Action OnWin;
 
     [Header("Feedbacks")]
     [SerializeField] private MMFeedbacks gameOverFeedback;
@@ -42,7 +49,7 @@ public class MainManager : MonoBehaviour
             { "level", SaveManager.level }
         };
          AnalyticsResult result = Analytics.CustomEvent("start Game", dictionaryData);
-        print("analytics : " + result);
+        //print("analytics : " + result);
     }
 
     bool _owner_endGame = false;
@@ -54,6 +61,7 @@ public class MainManager : MonoBehaviour
         OnEndGame.Invoke();
         victoryPanel.ShowPanel(SaveManager.level);
         SaveManager.level += 1;
+        OnWin?.Invoke();
         FindObjectOfType<BackgroundMusic>()?.ChangeAudio(0);
 
         victoryFeedback.PlayFeedbacks();

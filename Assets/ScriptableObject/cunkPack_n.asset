@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0525a2f99a2949a4d906c877009276a0, type: 3}
+  m_Name: cunkPack_n
+  m_EditorClassIdentifier: 
+  Chunks:
+  - {fileID: 5372678192210687627, guid: ee65bb2f588f3a84d80afe67279386c5, type: 3}
+  - {fileID: 8008787111608172017, guid: 49ec3ab078442134aa411511e4c6ce5b, type: 3}

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Data;
 
 public class ChunkObject : MonoBehaviour
 {
@@ -21,21 +20,7 @@ public class ChunkObject : MonoBehaviour
     private float targetRotation;
     private float startRotation;
     private float endRotation;
-    public ObjectData GetData()
-    {
-        var data = new ObjectData();
-        data.object_tag = object_tag;
-        data.pos = transform.localPosition;
-        data.linePoints = GetLinePoints();
-        data.lineLoop = GetLineLoop();
-        data.moveSpeed = moveSpeed;
-        data.angle = transform.rotation.eulerAngles.z;
-        data.rotate = this.rotate;
-        data.rotateLoop = limitRotate;
-        data.rotateSpeed = rotateSpeed;
-        data.otherData_json = otherData;
-        return data;
-    }
+    
 
     private void Start()
     {

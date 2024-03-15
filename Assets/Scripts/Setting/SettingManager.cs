@@ -18,11 +18,13 @@ public class SettingManager : MonoBehaviour
     public void MuteSound()
     {
         SaveManager.soundMute = !SaveManager.soundMute;
+        print(1);
         UpdateData();
     }
     public void MuteMusic()
     {
         SaveManager.musicMute = !SaveManager.musicMute;
+        print(2);
         UpdateData();
     }
 
