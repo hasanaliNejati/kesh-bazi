@@ -27,6 +27,7 @@ public class ChunkObject : MonoBehaviour
         startRotation = transform.rotation.eulerAngles.z;
         currentRotation = startRotation;
         endRotation = startRotation + rotate;
+        ConvertLineToGlobal();
         Movment(true);
     }
 
@@ -110,6 +111,20 @@ public class ChunkObject : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, currentRotation);
 
         }
+    }
+
+    void ConvertLineToGlobal()
+    {
+        if (movementLine == null)
+            return;
+
+        List<Vector3> points = new List<Vector3>();
+        for (int i = 0; i < movementLine.positionCount; i++)
+        {
+            points.Add(movementLine.GetPosition(i) + transform.position);
+        }
+        movementLine.useWorldSpace = true;
+        movementLine.SetPositions(points.ToArray());
     }
 
     protected virtual void OtherUpdate()
