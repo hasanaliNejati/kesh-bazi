@@ -115,6 +115,9 @@ public class ChunkObject : MonoBehaviour
 
     void ConvertLineToGlobal()
     {
+        if (movementLine == null)
+            return;
+
         List<Vector3> points = new List<Vector3>();
         for (int i = 0; i < movementLine.positionCount; i++)
         {
