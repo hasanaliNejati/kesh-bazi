@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: cunkPack_g
   m_EditorClassIdentifier: 
   Chunks:
-  - {fileID: 5731935494806101592, guid: 9a315a805aedad9449a90a40fef057c1, type: 3}
-  - {fileID: 845026657344752079, guid: bd8c5cd32ad2b5f45b9cd18116a5e7ae, type: 3}
+  - {fileID: 2319199606698163833, guid: 4c40812c05c3690488c35ead409f4764, type: 3}
