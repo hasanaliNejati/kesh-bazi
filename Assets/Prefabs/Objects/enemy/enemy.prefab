@@ -938,8 +938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554b4e3bb91eb0f4daf5a4a5900034e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathMassage: ooo
-  deathMassageDetail: wwwwwwww
+  deathMassage: 'be careful '
+  deathMassageDetail: don't worry try again
 --- !u!114 &1433759227424365488
 MonoBehaviour:
   m_ObjectHideFlags: 0

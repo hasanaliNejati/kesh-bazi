@@ -11,6 +11,8 @@ public class LevelSlider : MonoBehaviour
     {
         get { return _character ? _character : _character = GameObject.FindGameObjectWithTag("Player"); }
     }
+
+    [SerializeField] private Transform endPos;
     public Slider slider;
     public Text levelText;
     public Text nextLevelText;
@@ -27,9 +29,9 @@ public class LevelSlider : MonoBehaviour
     {
         if (!character)
             return;
-        characterY = Mathf.Clamp(character.transform.position.y, characterY, 1);
+        characterY = Mathf.Clamp(character.transform.position.y, characterY, endPos.position.y);
 
-        float amound = characterY / 1;
+        float amound = characterY / endPos.position.y;
 
         slider.value = amound;
     }

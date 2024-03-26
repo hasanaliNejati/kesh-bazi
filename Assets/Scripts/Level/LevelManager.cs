@@ -86,6 +86,7 @@ public class LevelManager : MonoBehaviour
 
     private void MakeLevel(int level)
     {
+
         List<Chunk> chunksBas = new List<Chunk>();
         List<Chunk> chunksTarget = new List<Chunk>();
         switch (GetLevelType(level))
@@ -108,15 +109,27 @@ public class LevelManager : MonoBehaviour
 
         int numberChunk = Random.Range(minNumberChunk, maxNumberChunk);
 
-        Chunk chunk = chunksTarget[Random.Range(0, chunksTarget.Count)];
 
+        int pastRandom = -1;
 
         levels.Clear();
         for (int i = 0; i < numberChunk; i++)
         {
+            for (int y = 0; y < 10; y++)
+            {
+                int random = Random.Range(0, chunksTarget.Count);
+                if (random != pastRandom)
+                {
+                    pastRandom= random;
+                    break;
+                }
+            }
+            Chunk chunk = chunksTarget[pastRandom];
             print(chunksBas.FindIndex(x => x == chunk));
             levels.Add(chunksBas.FindIndex(x => x == chunk));
         }
+
+
 
         SaveLavelData(levels);
     }

@@ -29,6 +29,7 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
+        //SaveManager.level = 100;
         Time.timeScale = 1;
         Character c = Instantiate(character, Vector3.zero, new Quaternion());
         c.inputPanel = inputPanel;

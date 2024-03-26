@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 21.1
-  minLevle: 10
+  minLevle: 3
 --- !u!1001 &2230279008723064754
 PrefabInstance:
   m_ObjectHideFlags: 0

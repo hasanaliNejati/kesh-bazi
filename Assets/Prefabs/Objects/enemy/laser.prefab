@@ -19104,6 +19104,7 @@ GameObject:
   - component: {fileID: 121564926922857307}
   - component: {fileID: 121564926922857308}
   - component: {fileID: 121564926922857309}
+  - component: {fileID: -6917784708230287055}
   m_Layer: 0
   m_Name: laser
   m_TagString: enemy
@@ -19193,6 +19194,20 @@ MonoBehaviour:
   limitRotate: 0
   rotateSpeed: 10
   object_tag: 
+--- !u!114 &-6917784708230287055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121564926922857306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554b4e3bb91eb0f4daf5a4a5900034e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathMassage: 'be careful '
+  deathMassageDetail: don't worry try again
 --- !u!1 &121564927487385006
 GameObject:
   m_ObjectHideFlags: 0
@@ -38297,6 +38312,7 @@ GameObject:
   - component: {fileID: 121564927963438033}
   - component: {fileID: 121564927963438034}
   - component: {fileID: 121564927963438035}
+  - component: {fileID: 3711676843779913205}
   m_Layer: 0
   m_Name: audio
   m_TagString: Untagged
@@ -38463,6 +38479,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ce6ba75ba89b2469216eb785686279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3711676843779913205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121564927963438032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b9d7de6c028884687ee9e83ac53f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBackgroudMusic: 0
 --- !u!1 &121564928165994144
 GameObject:
   m_ObjectHideFlags: 0
