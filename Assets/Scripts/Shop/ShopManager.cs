@@ -86,6 +86,9 @@ public class ShopManager : MonoBehaviour
                 UpdateInfo();
                 //feedback
                 buyFeedback.PlayFeedbacks();
+
+                AppMetrica.Instance.ReportEvent("buy character", new Dictionary<string, object> { { "index", selectedIndex } });
+
             }
             else
             {
@@ -106,6 +109,9 @@ public class ShopManager : MonoBehaviour
 
                 //feedback
                 buyFeedback.PlayFeedbacks();
+
+                AppMetrica.Instance.ReportEvent("buy character", new Dictionary<string, object> { { "index", selectedIndex } });
+
             }
             else
             {
