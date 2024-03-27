@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7b82b1248c84e468b83ba7fb3f14a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApiKey: 8b90b585-d5fb-4314-bbbd-1bc94bb7a942
+  ApiKey: 26955bfb-8456-4527-84a5-ed20080314d2
   ExceptionsReporting: 1
   SessionTimeoutSec: 10
   LocationTracking: 0
