@@ -62382,6 +62382,7 @@ GameObject:
   - component: {fileID: 1716976283}
   - component: {fileID: 1716976282}
   - component: {fileID: 1716976281}
+  - component: {fileID: 1716976285}
   m_Layer: 5
   m_Name: Market
   m_TagString: Untagged
@@ -62498,6 +62499,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1716976285}
+        m_TargetAssemblyTypeName: EventTracker, Assembly-CSharp
+        m_MethodName: SendEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1716976283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62536,6 +62549,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716976279}
   m_CullTransparentMesh: 1
+--- !u!114 &1716976285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716976279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae8b135cf1444b43a1d5800234e6904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: marketOpen
 --- !u!1 &1723221063
 GameObject:
   m_ObjectHideFlags: 0

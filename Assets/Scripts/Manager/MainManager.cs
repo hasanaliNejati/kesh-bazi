@@ -49,7 +49,8 @@ public class MainManager : MonoBehaviour
         {
             { "level", SaveManager.level }
         };
-         AnalyticsResult result = Analytics.CustomEvent("start Game", dictionaryData);
+        AnalyticsResult result = Analytics.CustomEvent("start Game", dictionaryData);
+
         //print("analytics : " + result);
     }
 
@@ -64,6 +65,7 @@ public class MainManager : MonoBehaviour
         SaveManager.level += 1;
         OnWin?.Invoke();
         FindObjectOfType<BackgroundMusic>()?.ChangeAudio(0);
+        AppMetrica.Instance.ReportEvent("levelCompleted", new Dictionary<string, object> { { "level", SaveManager.level } });
 
         victoryFeedback.PlayFeedbacks();
     }
