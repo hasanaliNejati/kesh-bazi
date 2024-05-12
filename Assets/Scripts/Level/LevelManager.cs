@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using Random = UnityEngine.Random;
 using static Cinemachine.DocumentationSortingAttribute;
+using JetBrains.Annotations;
 
 public enum LevelType
 {
@@ -48,7 +49,14 @@ public class LevelManager : MonoBehaviour
 
         MainManager.Instans.OnWin += Win;
         print(GetLevelType(SaveManager.level).ToString());
+
+        //var a = GetChiza();
     }
+
+    //(int i,string s,float j) GetChiza(string input = "hamash")
+    //{
+    //    return (1, "asdfasdf", 8);
+    //}
 
     private void Win()
     {
@@ -79,7 +87,7 @@ public class LevelManager : MonoBehaviour
             chunk.transform.position = new Vector3(0, height);
             height += chunk.height;
         }
-        endPoint.transform.position = new Vector3(0, height + 2);
+        endPoint.transform.position = new Vector3(0, height + 4);
 
     }
 
