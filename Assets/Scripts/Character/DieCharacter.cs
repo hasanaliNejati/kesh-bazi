@@ -1,4 +1,5 @@
-using MoreMountains.Feedbacks;
+﻿using MoreMountains.Feedbacks;
+using RTLTMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,8 @@ public class DieCharacter : MonoBehaviour
     }
 
     bool deathed;
-    public void Die(string massage = "gaem over" , string massageDetail = "pay more attention.")
+    public void Die(string massage = "مراقب باش" , string massageDetail = "حواستو بیشتر جمع کن!")
+      
     {
         if (deathed)
             return;
