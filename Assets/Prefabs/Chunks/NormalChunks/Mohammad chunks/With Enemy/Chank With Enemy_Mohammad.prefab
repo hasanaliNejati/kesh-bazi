@@ -369,6 +369,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 1.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7119328080116901413, guid: d9ffa87c5b1ad804288520b34d2518e5, type: 3}
+      propertyPath: deathMassage
+      value: be careful
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

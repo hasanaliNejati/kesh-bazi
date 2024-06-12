@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
@@ -46,7 +46,7 @@ public class ScreenWall : MonoBehaviour
         float characterPosY = character.transform.position.y - transform.position.y;
         if (characterPosY < -(cameraSize.y + dieWallOffste) && (!character.connected || GetComponent<CameraFollow>().fasterMod))
         {
-            character.GetComponent<DieCharacter>().Die("You fell down!!");
+            character.GetComponent<DieCharacter>().Die("باختی:(");
         }
 
     }

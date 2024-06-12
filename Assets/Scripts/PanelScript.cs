@@ -15,6 +15,7 @@ public class PanelScript : MonoBehaviour
     public bool replayAnim;
     public string replayAnimName = "replay";
     CanvasGroup _canvasGroup;
+    
     CanvasGroup canvasGroup { get { return _canvasGroup?_canvasGroup:_canvasGroup = GetComponent<CanvasGroup>(); } }
     private void Awake()
     {
