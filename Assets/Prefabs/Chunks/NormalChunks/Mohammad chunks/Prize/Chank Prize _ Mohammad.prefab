@@ -1050,6 +1050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candy groupe 2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3728044381282415736, guid: 5bc49f8098358bc4c9f2abddb27e7c31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4131376157392117405, guid: 5bc49f8098358bc4c9f2abddb27e7c31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13
