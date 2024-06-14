@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f341d5a23ec9d2245932091d011d09e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 28
-  minLevle: 50
+  height: 27
+  minLevle: 80
 --- !u!1001 &2383491046644440639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,11 +178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.37
+      value: 3.81
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.779995
+      value: 5.72
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -260,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.31
+      value: -1.26
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.99
+      value: 12.4
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -330,11 +330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.85
+      value: -3.19
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.57
+      value: 20.49
       objectReference: {fileID: 0}
     - target: {fileID: 8034331476096694915, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -453,6 +453,10 @@ PrefabInstance:
     - target: {fileID: 8034331476096694943, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
       propertyPath: m_Name
       value: pin (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034331476096694943, guid: ec275d04aaad598419c44e1e216cf71f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

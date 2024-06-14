@@ -17021,7 +17021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: value
-      value: 187
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: resourceType
@@ -17049,11 +17049,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7012941278848343912, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 26,999
+      value: 18,999
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 187
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_fontSize
@@ -34171,7 +34171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: value
-      value: 1482
+      value: 7750
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: purchasFailed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -34183,7 +34183,7 @@ PrefabInstance:
       objectReference: {fileID: 1974296373}
     - target: {fileID: 7012941278848343912, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 49,999
+      value: 29,999
       objectReference: {fileID: 0}
     - target: {fileID: 8829469712202353868, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -34219,7 +34219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 1482
+      value: 7750
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -44613,7 +44613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: value
-      value: 43
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: resourceType
@@ -44633,7 +44633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 43
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_fontSize
@@ -63959,7 +63959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: value
-      value: 730
+      value: 3750
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: purchasFailed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -63971,7 +63971,7 @@ PrefabInstance:
       objectReference: {fileID: 1974296373}
     - target: {fileID: 7012941278848343912, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 24,999
+      value: 14,999
       objectReference: {fileID: 0}
     - target: {fileID: 8829469712202353868, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -64007,7 +64007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 730
+      value: 3750
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -66722,7 +66722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: value
-      value: 250
+      value: 2250
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: purchasFailed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -66770,7 +66770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: m_text
-      value: 250
+      value: 2250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -68085,6 +68085,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
+      propertyPath: value
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856746143985498241, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
       propertyPath: purchasFailed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 671876878}
@@ -68092,6 +68096,10 @@ PrefabInstance:
       propertyPath: purchasSuccessfuly.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1974296373}
+    - target: {fileID: 9033263233916218981, guid: a18e924b5ac955d42b3599fb1dc7368e, type: 3}
+      propertyPath: m_text
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
