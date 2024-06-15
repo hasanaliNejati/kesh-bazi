@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,8 @@ public class Error : MonoBehaviour
 
     public void Play()
     {
-        Loger.Instance.LogError("Payment failed!!");
+        //Loger.Instance.LogError("Payment failed!!");
+        Loger.Instance.LogError("خرید ناموفق بود!!");
     }
     //[SerializeField] private AudioSource errorSuonde;
     //[SerializeField] private Animator errorAnim;

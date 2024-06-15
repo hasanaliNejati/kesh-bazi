@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
@@ -93,7 +93,7 @@ public class ShopManager : MonoBehaviour
             else
             {
                 resourceNotEnoughFeedback.PlayFeedbacks();
-                loger.LogError("gem not enough!!");
+                loger.LogError("الماس کافی نیست!!");
             }
         }
         else
@@ -116,7 +116,7 @@ public class ShopManager : MonoBehaviour
             else
             {
                 resourceNotEnoughFeedback.PlayFeedbacks();
-                loger.LogError("candy not enough!!");
+                loger.LogError("شکلات کافی نیست!!");
             }
         }
     }
